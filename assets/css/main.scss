@@ -493,11 +493,6 @@ html body .publications .bibliography .abbr abbr.badge {
 .social .contact-icons a:hover {
   color: var(--kp-accent) !important;
 }
-.social .contact-note {
-  font-family: var(--kp-mono);
-  font-size: 0.78rem;
-  color: var(--kp-muted);
-}
 footer {
   border-top: 1px solid var(--kp-rule);
   font-family: var(--kp-mono);
@@ -509,15 +504,45 @@ footer {
   }
 }
 
-/* ---------- profile photo ---------- */
-.profile img {
-  border-radius: 0 !important;
+/* ---------- profile photo: circle beside the name ---------- */
+.post:has(.desc) {
+  position: relative;
+}
+.post:has(.desc) .profile {
+  float: none !important;
+  width: 7.5rem;
+  margin: 0 0 2rem;
+}
+.post:has(.desc) .profile figure,
+.post:has(.desc) .profile picture {
+  margin: 0;
+}
+.post:has(.desc) .profile img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: 50% 28%;
+  border-radius: 50% !important;
   box-shadow: none !important;
   outline: 1px solid var(--kp-accent);
-  outline-offset: 8px;
+  outline-offset: 6px;
 }
-.profile {
-  margin: 0.4rem 0 1.5rem 2.5rem;
+@media (min-width: 768px) {
+  .post-header:has(.desc) {
+    padding-right: 14.5rem;
+    min-height: 19rem;
+  }
+  .post:has(.desc) .profile {
+    position: absolute;
+    top: 3.5rem;
+    right: 0.5rem;
+    width: 12rem;
+    margin: 0;
+  }
+  .post:has(.desc) .profile img {
+    outline-offset: 8px;
+  }
 }
 
 /* ---------- back to top ---------- */
@@ -551,12 +576,37 @@ footer {
   border-color: var(--kp-accent);
 }
 
-/* ---------- social icons: smaller, quieter ---------- */
+/* ---------- contact block at the bottom of the home page ---------- */
+.social {
+  text-align: left;
+  margin-top: 3.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--kp-rule);
+}
+.social::before {
+  content: "Get in touch";
+  display: block;
+  font-family: var(--kp-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--kp-muted);
+  margin-bottom: 1.25rem;
+}
 .social .contact-icons {
-  font-size: 1.9rem;
+  font-size: 1.6rem;
+  line-height: 1;
 }
 .social .contact-icons a {
-  margin: 0 0.5rem;
+  margin: 0 1.1rem 0 0;
+}
+.social .contact-note {
+  font-family: var(--kp-sans);
+  font-size: 0.98rem;
+  color: var(--kp-muted);
+  margin-top: 0.9rem;
+  padding-bottom: 2rem;
 }
 
 /* ---------- page transitions (View Transitions API) ----------
