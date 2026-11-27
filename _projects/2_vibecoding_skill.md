@@ -1,7 +1,7 @@
 ---
 layout: page
-title: a better-vibecoding skill for coding agents
-description: one agent skill that tackles the common failure modes of vibe-coded apps, from bland UI to security holes
+title: A better-vibecoding skill for coding agents
+description: One agent skill that tackles the common failure modes of vibe-coded apps, from bland UI to security holes
 importance: 1
 category: agent tooling
 ---

@@ -164,6 +164,19 @@ kbd {
   text-underline-offset: 0.45em;
 }
 
+#light-toggle {
+  border: 0;
+  background: transparent;
+  color: var(--kp-muted);
+  box-shadow: none;
+}
+#light-toggle:hover {
+  color: var(--kp-accent);
+}
+#light-toggle:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* ---------- page and post headers ---------- */
 .post-header {
   margin-bottom: 2.5rem;
@@ -367,7 +380,7 @@ blockquote.block-tip strong:first-child {
   text-align: left;
   padding-top: 1rem;
 }
-.publications .abbr .badge {
+html body .publications .bibliography .abbr abbr.badge {
   background: transparent !important;
   border: 1px solid var(--kp-accent);
   color: var(--kp-accent) !important;

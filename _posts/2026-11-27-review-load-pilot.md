@@ -1,8 +1,8 @@
 ---
 layout: post
-title: does reviewer load make code review shallower?
+title: Does reviewer load make code review shallower?
 date: 2026-11-27 16:00:00+0530
-description: a pilot on 45,000 code reviews across 36 repos with AI-agent pull requests. Heavier load comes with slightly lighter reviews, but I found no sign it lets more bugs through.
+description: A pilot on 45,000 code reviews across 36 repos with AI-agent pull requests. Heavier load comes with slightly lighter reviews, but I found no sign it lets more bugs through.
 tags: scrapped code-review ai-agents
 categories: pilot
 related_posts: false

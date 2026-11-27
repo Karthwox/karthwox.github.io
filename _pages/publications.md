@@ -1,8 +1,8 @@
 ---
 layout: page
 permalink: /publications/
-title: research
-description: papers and preprints, newest first. Quick pilots that didn't become papers are written up in pilot notes.
+title: Research
+description: Papers and preprints, newest first. Quick pilots that didn't become papers are written up in pilot notes.
 nav: true
 nav_order: 1
 ---

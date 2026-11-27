@@ -1,7 +1,7 @@
 ---
 layout: page
-title: task verification for neuro-san
-description: an end-of-turn checker that verifies an agent network actually did what was asked
+title: Task verification for neuro-san
+description: An end-of-turn checker that verifies an agent network actually did what was asked
 importance: 1
 category: open source
 github: https://github.com/cognizant-ai-lab/neuro-san-studio
