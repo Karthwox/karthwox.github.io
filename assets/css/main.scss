@@ -430,6 +430,38 @@ html body .publications .bibliography .abbr abbr.badge {
   color: var(--kp-accent) !important;
 }
 
+/* research: filter box */
+.bibsearch-form-input {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  margin: 0.5rem 0 2rem;
+  padding: 0.55rem 0 0.55rem 1.7rem;
+  font-family: var(--kp-mono);
+  font-size: 0.85rem;
+  color: var(--kp-ink);
+  background: transparent
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a847a' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E")
+    no-repeat left center;
+  border: 0;
+  border-bottom: 1px solid var(--kp-rule);
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.bibsearch-form-input::placeholder {
+  color: var(--kp-muted);
+  opacity: 1;
+}
+.bibsearch-form-input:focus {
+  border-bottom-color: var(--kp-accent);
+}
+.bibsearch-form-input:focus-visible {
+  outline: 2px solid var(--kp-accent);
+  outline-offset: 4px;
+}
+
 /* ---------- projects: numbered index (see _pages/projects.md) ---------- */
 .kp-projects {
   list-style: none;
