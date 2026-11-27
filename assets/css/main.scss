@@ -270,7 +270,7 @@ kbd {
   margin: 0;
 }
 .news .table tr {
-  border-bottom: 1px solid var(--kp-rule);
+  border-bottom: none;
 }
 /* the next section's label already draws a rule, so the last row doesn't */
 .news .table tr:last-child {
@@ -285,11 +285,11 @@ kbd {
   font-size: 0.78rem;
   color: var(--kp-muted);
   white-space: nowrap;
-  padding: 1rem 1.5rem 1rem 0 !important;
+  padding: 0.7rem 1.5rem 0.7rem 0 !important;
   vertical-align: baseline;
 }
 .news .table td {
-  padding: 1rem 0 !important;
+  padding: 0.7rem 0 !important;
   vertical-align: baseline;
 }
 .news .news-title {
