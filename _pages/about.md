@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: CS student at <a href='https://www.iiitb.ac.in/'>IIIT Bangalore</a>. I build tools for AI agents and run quick experiments on how they behave.
+subtitle: Computer Science student at <a href='https://www.iiitb.ac.in/'>IIIT Bangalore</a>, building tools for AI agents and testing how they behave.
 
 profile:
   align: right
@@ -22,7 +22,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I'm a Computer Science student at IIIT Bangalore. I'm interested in how AI agents behave once they're doing real work: where they fail, how to measure it, and what makes them dependable enough to trust.
+Most of what I work on comes down to one question: what happens when AI agents take on real work? I want to know where they fail, how to measure it, and what it takes before you can rely on one.
 
 My work splits two ways. **Research:** careful, small-scale experiments on LLMs and coding agents, written up as papers when the results hold up. **Engineering:** tools, agent skills and open-source contributions that make agents more reliable to build with.
 
