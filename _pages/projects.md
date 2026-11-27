@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: engineering work: open-source contributions and tools for AI agents.
+description: engineering work — open-source contributions and tools for AI agents.
 nav: true
 nav_order: 3
 display_categories: [open source, agent tooling]
