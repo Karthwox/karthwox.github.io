@@ -255,10 +255,7 @@ kbd {
   color: var(--kp-ink);
   margin: 3rem 0 0.6rem;
   padding-top: 1.1rem;
-  border-top: none;
-  background:
-    linear-gradient(var(--kp-accent), var(--kp-accent)) top left / 2.5rem 2px no-repeat,
-    linear-gradient(var(--kp-rule), var(--kp-rule)) top left / 100% 1px no-repeat;
+  border-top: 1px solid var(--kp-rule);
 }
 .post:has(.desc) article > h2 a {
   color: var(--kp-ink) !important;
@@ -598,10 +595,7 @@ footer {
   text-align: left;
   margin-top: 3rem;
   padding-top: 1.1rem;
-  border-top: none;
-  background:
-    linear-gradient(var(--kp-accent), var(--kp-accent)) top left / 2.5rem 2px no-repeat,
-    linear-gradient(var(--kp-rule), var(--kp-rule)) top left / 100% 1px no-repeat;
+  border-top: 1px solid var(--kp-rule);
 }
 .social::before {
   content: "Get in touch";
