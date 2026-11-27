@@ -107,7 +107,7 @@ This is where the idea stopped. Neither load nor review depth predicted later pr
 
 The idea needed both links in the chain. The first link (load leads to lighter reviews) is there, but small. The second link (lighter reviews let more problems through) didn't show up with either outcome measure. Turning this into a convincing study would need a causal design, such as natural experiments in how reviewers get assigned, plus better quality measures. That's weeks of work chasing an effect that, on this evidence, may not matter.
 
-A practical limit also showed up early: only **19.5%** of reviews had a nearby earlier review that allowed even a rough estimate of time spent, and only 3.4% of sittings had five or more reviews. The intense, back-to-back reviewing the vigilance story is about barely shows up in public GitHub data.
+A practical limit also showed up early: only **19.5%** of reviews had a nearby earlier review that allowed even a rough estimate of time spent, and only 3.4% of sittings had five or more reviews. The vigilance idea is about long, unbroken stretches of reviewing, and public GitHub data shows very few of them.
 
 ## What would make it worth reopening
 
