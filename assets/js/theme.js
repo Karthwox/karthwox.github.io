@@ -333,3 +333,11 @@ let updateCalendarUrl = () => {
     iframe.src = getCalendarUrl(iframe.dataset.calendarId, iframe.dataset.timezone || "UTC");
   }
 };
+
+// The theme sets the profile photo's alt text to its file name ("prof_pic.jpg").
+// Give screen readers a real description instead.
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".profile img").forEach((img) => {
+    img.alt = "Photo of Karthik Annadurai";
+  });
+});
