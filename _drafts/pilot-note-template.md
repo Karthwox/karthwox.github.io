@@ -4,7 +4,6 @@ title: The question the pilot asked, in sentence case
 date: YYYY-MM-DD HH:MM:SS+0530
 description: One sentence a reader could quote, covering what was tested and what came out
 tags: scrapped # or: ongoing / became-a-paper, plus topic tags like ai-agents
-categories: pilot
 related_posts: false
 toc:
   sidebar: left
