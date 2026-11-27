@@ -8,7 +8,9 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
-  enabled: false # turn on once there are items in the `_news` folder
+  enabled: true # includes a list of news items from the `_news` folder
+  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
+  limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
   enabled: true
@@ -16,12 +18,10 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I'm an Integrated M.Tech Computer Science student at IIIT Bangalore (since 2025). Most of my work sits where software engineering meets LLM agents: how coding agents write and review code, how reliable their output is, and what tooling makes them safer to depend on.
+I'm a Computer Science student at IIIT Bangalore. I'm interested in how AI agents behave once they're doing real work: where they fail, how to measure it, and what makes them dependable enough to trust.
 
-**Research.** I've written a paper on whether an agent security skill does better than a one-line reminder at keeping AI-generated code secure, and I'm working on LLM interpretability and on how prompts and agent configurations break when the underlying model is swapped.
+My work splits two ways. **Research:** careful, small-scale experiments on LLMs and coding agents, written up as papers when the results hold up. **Engineering:** tools, agent skills and open-source contributions that make agents more reliable to build with.
 
-**Pilot notes.** I test a lot of ideas with small, fast pilots before committing to them. Most don't become papers, but they still produce real findings, so I write them up in [pilot notes]({{ '/blog/' | relative_url }}): what I tested, what I found, and why I stopped or kept going.
+I test most ideas with a quick pilot before committing to them, and I write up the results either way in [pilot notes]({{ '/blog/' | relative_url }}): what I tested, what I found, and why I kept going or stopped.
 
-**Projects.** I contribute to open-source agent frameworks and build agent skills. See [projects]({{ '/projects/' | relative_url }}).
-
-Outside of this, I play bass in a six-piece cover band and help run Symphony, the college music club.
+Outside of this, I'm an elected member of the college's Student Affairs Council, play bass in a six-piece cover band, help run Symphony (the college music club), and play table tennis and basketball.
