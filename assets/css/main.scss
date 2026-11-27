@@ -508,3 +508,88 @@ footer {
     transition: none;
   }
 }
+
+/* ---------- profile photo ---------- */
+.profile img {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: 1px solid var(--kp-accent);
+  outline-offset: 8px;
+}
+.profile {
+  margin: 0.4rem 0 1.5rem 2.5rem;
+}
+
+/* ---------- back to top ---------- */
+#back-to-top {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50%;
+  background: var(--kp-paper) !important;
+  color: var(--kp-ink) !important;
+  border: 1px solid var(--kp-rule);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    bottom 0.2s ease;
+}
+#back-to-top svg {
+  position: static !important;
+  display: block;
+  margin: 0 !important;
+  width: 18px !important;
+  height: 18px !important;
+  transform: none !important;
+  fill: currentColor;
+}
+#back-to-top:hover {
+  color: var(--kp-accent) !important;
+  border-color: var(--kp-accent);
+}
+
+/* ---------- social icons: smaller, quieter ---------- */
+.social .contact-icons {
+  font-size: 1.9rem;
+}
+.social .contact-icons a {
+  margin: 0 0.5rem;
+}
+
+/* ---------- page transitions (View Transitions API) ----------
+   Supported browsers cross-fade between pages; others just navigate normally. */
+@view-transition {
+  navigation: auto;
+}
+#navbar {
+  view-transition-name: site-nav;
+}
+::view-transition-old(root) {
+  animation: kp-fade-out 160ms ease-in both;
+}
+::view-transition-new(root) {
+  animation: kp-fade-in 260ms ease-out both;
+}
+@keyframes kp-fade-out {
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+@keyframes kp-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+  #back-to-top {
+    transition: none;
+  }
+}
