@@ -4,9 +4,12 @@ title: A security skill for AI coding agents
 description: A drop-in skill that makes coding agents apply security rules while they build web apps
 importance: 1
 category: agent tooling
+github: https://github.com/Karthwox/agent-security-skill
 ---
 
 AI coding agents can build a working web app from a few sentences, but they routinely leave out protections nobody asked for: rate limits on paid API calls, server-side checks on who can read what, safe file uploads. This skill gives the agent a short set of security rules to follow _while_ it writes the code, so those protections are built in from the start instead of patched on later. It works with Claude Code, Codex and Antigravity, and I've tested it on all three.
+
+**[View the skill on GitHub →](https://github.com/Karthwox/agent-security-skill)** It's MIT-licensed, with install steps for each agent.
 
 ## How it works
 
