@@ -463,6 +463,18 @@ html body .publications .bibliography .abbr abbr.badge {
   outline-offset: 4px;
 }
 
+/* post sidebar contents: grow with the sections, no inner scrollbar */
+#toc-sidebar,
+#toc-sidebar.toc {
+  max-height: none !important;
+  height: auto;
+  overflow: visible !important;
+  scrollbar-width: none;
+}
+#toc-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
 /* ---------- projects: numbered index (see _pages/projects.md) ---------- */
 .kp-projects {
   list-style: none;
