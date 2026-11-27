@@ -1,31 +1,48 @@
 ---
 layout: page
 title: Medical Summary Generator
-description: An LLM app that turns a patient's notes, prescriptions, lab results and scanned reports into one structured medical summary
+description: An LLM app that explains a patient's own medical records in plain language, including what their test numbers mean
 importance: 1
 category: llm apps
+github: https://github.com/Karthwox/medical-summary-generator
 ---
 
-A patient's medical history is usually scattered across handwritten notes, prescriptions, lab printouts and scanned reports. This app pulls it all into one structured summary that a reader can take in at a glance.
+Medical records are written for doctors. A patient leaves with a stack of prescriptions and lab printouts full of numbers and abbreviations, and no clear idea what any of it means. This app turns those records into a summary the patient can actually understand.
+
+**[View on GitHub →](https://github.com/Karthwox/medical-summary-generator)**
 
 ## What it does
 
-You enter the basics (symptoms and timeline, medications, lab results, history) and drop in PDFs or images of reports. The app extracts the text from the PDFs in the browser, sends everything to an LLM, and turns the response into a structured report:
+You enter your symptoms, medicines and lab results, or upload report PDFs. The app reads the PDFs in the browser, sends everything to an LLM, and builds a plain-language report:
 
-- **a one-line summary** of the case
-- **presenting illness and history**, as a short narrative
-- **treatment analysis:** each medication with its dose, its role and why it was likely prescribed
-- **lab interpretation:** each result marked high, normal or low, with what it means
-- **red flags:** symptoms to watch for
+- **one sentence** on what happened
+- **your medicines:** what each one does and why it was likely prescribed
+- **your test results:** each number marked high, normal or low, with what it means for you
+- **questions to ask your doctor**
+- **warning signs** that mean you should get help promptly
 
-The finished report can be exported as a PDF.
+The report can be printed or saved as a PDF. It explains records; it doesn't replace a doctor.
 
 ## How it's built
 
-- **Front end:** React and Vite, styled with Tailwind, with light and dark themes.
-- **Models:** Llama models served through Groq. Text-only requests use a large text model; when images are attached, the app switches to a vision model. If one model fails or has been retired, it falls back to the next.
-- **Files:** pdf.js extracts PDF text in the browser, and react-dropzone handles uploads.
-- **Structured output:** the model is asked for JSON in a fixed schema, which the app parses and renders into the report layout.
-- **Demo mode:** a built-in mock summary lets anyone try the full flow without an API key.
+- **Front end:** React, Vite and Tailwind, with light and dark themes. Everything runs in the browser; there's no server.
+- **Models:** LLMs served through Groq, with automatic fallback to a second model if the first fails.
+- **Files:** pdf.js extracts report text in the browser.
+- **Structured output:** the model returns JSON in a fixed schema, which the app validates and renders into the report.
+- **Demo mode:** type `mock` as the API key to see a sample report without one.
 
-_A personal project. The summaries organise and explain records; they are not medical advice._
+## Hardening it with my own skill
+
+When I revisited this project, I ran it through my [security skill for coding agents]({{ '/projects/2_security_skill/' | relative_url }}). It found real problems:
+
+- **The model's HTML was inserted straight into the page,** so a malicious response could run code. In testing, a crafted response did exactly that. Output is now sanitized and checked against the expected shape, and the same attack is neutralised.
+- **A file removed from the upload list was still sent to the AI,** a privacy bug for medical documents. Fixed.
+- **The API key setup would have baked a key into the public JavaScript,** and `.env` wasn't git-ignored. Users now bring their own key, which is never saved.
+- **Smaller fixes:**
+  - uploads checked by their actual content
+  - caps on file size, pages and request length
+  - a Content Security Policy
+  - no patient data in the browser console
+  - updated dependencies and models
+
+_Built in 2025 as a personal project._
