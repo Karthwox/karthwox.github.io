@@ -1,18 +1,19 @@
 ---
 ---
 
-% TODO(Karthik): replace the placeholder title, arXiv ID and Zenodo DOI with the real ones.
+% Add the arXiv ID (arxiv = {...}) once the submission clears moderation.
 @misc{annadurai2026securityskill,
-  abbr          = {arXiv},
-  bibtex_show   = {true},
-  selected      = {true},
-  title         = {TODO: Paper title — Does an Agent Security Skill Beat a One-Line Reminder for AI-Generated Code?},
-  author        = {Annadurai, Karthik},
-  year          = {2026},
-  eprint        = {TODO},
-  archivePrefix = {arXiv},
-  primaryClass  = {cs.SE},
-  arxiv         = {TODO},
-  code          = {https://doi.org/TODO-zenodo-concept-doi},
-  abstract      = {Compares three conditions for AI coding agents building web apps: no instruction, a one-line "follow security best practices" reminder, and a structured security skill, across vulnerability clusters mapped to the OWASP Top 10, two model tiers and a public security skill as an extra baseline. TODO: replace with the paper's abstract.}
+  abbr        = {Preprint},
+  bibtex_show = {true},
+  selected    = {true},
+  title       = {Does a Security Skill Beat a One-Line Reminder? A Blinded, Pre-Registered Test of Agent Skill Files for Safer AI-Generated Code},
+  author      = {Annadurai, Karthik},
+  year        = {2026},
+  month       = nov,
+  publisher   = {Zenodo},
+  doi         = {10.5281/zenodo.24042353},
+  html        = {https://doi.org/10.5281/zenodo.24042353},
+  code        = {https://doi.org/10.5281/zenodo.23498723},
+  note        = {Preprint, v1.1. Replication archive: doi:10.5281/zenodo.23498723},
+  abstract    = {AI coding agents often build working apps while leaving out security protections nobody asked for. This study tests a security skill file for Codex CLI against a one-line security reminder, no guidance, and a public security skill, using pre-registered decision rules, blinded code review and a feature-fidelity check. On a stronger model, the reminder alone removed every critical failure on the original prompts. On a weaker model, the skill was not detectably better than the reminder on fresh prompt variants or on ten probes mapped to the OWASP Top 10. A final 400-run phase added a security checklist and a length-matched placebo: the reminder, checklist and skill each cut critical failures substantially while the placebo did not, and the skill showed no detectable advantage over the reminder (+5 points in failure rate, 95% interval -9 to +19) at 1.7 times the tokens of no guidance. Security content, not instruction length, appears to carry most of the benefit.}
 }
