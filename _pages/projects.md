@@ -2,11 +2,11 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: engineering work: open-source contributions and tools for AI agents.
 nav: true
 nav_order: 3
-display_categories: [work, fun]
-horizontal: false
+display_categories: [open source, agent tooling]
+horizontal: true
 ---
 
 <!-- pages/projects.md -->
