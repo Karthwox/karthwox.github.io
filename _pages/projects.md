@@ -10,12 +10,10 @@ display_categories: [open source, agent tooling]
 
 <!-- pages/projects.md: an editorial numbered list instead of al-folio's cards (styles in assets/css/main.scss) -->
 
-<div class="kp-projects-wrap">
+<ol class="kp-projects">
 {%- assign n = 0 -%}
 {%- for category in page.display_categories -%}
 {%- assign categorized_projects = site.projects | where: "category", category | sort: "importance" -%}
-{%- if categorized_projects.size > 0 %}
-<ol class="kp-projects">
 {%- for project in categorized_projects -%}
 {%- assign n = n | plus: 1 %}
 <li><a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}">
@@ -23,8 +21,6 @@ display_categories: [open source, agent tooling]
 <div><h3>{{ project.title }}</h3><p>{{ project.description }}</p><span class="kp-label">{{ project.category }}</span></div>
 <span class="kp-arrow" aria-hidden="true">&rarr;</span>
 </a></li>
+{%- endfor -%}
 {%- endfor %}
 </ol>
-{%- endif -%}
-{%- endfor %}
-</div>
