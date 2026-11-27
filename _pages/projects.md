@@ -5,7 +5,7 @@ permalink: /projects/
 description: Engineering work — open-source contributions and tools for AI agents.
 nav: true
 nav_order: 3
-display_categories: [open source, agent tooling, llm apps, machine learning]
+display_categories: [open source, agent tooling, web apps, llm apps, machine learning]
 ---
 
 <!-- pages/projects.md: an editorial numbered list instead of al-folio's cards (styles in assets/css/main.scss) -->
