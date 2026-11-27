@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: CS student at <a href='https://www.iiitb.ac.in/'>IIIT Bangalore</a>. I build tools for AI agents and run quick experiments on how they behave.
+subtitle: Computer Science student at <a href='https://www.iiitb.ac.in/'>IIIT Bangalore</a>. I build software and run small experiments to find out what actually works.
 
 profile:
   align: right
@@ -22,9 +22,9 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I'm a Computer Science student at IIIT Bangalore. I'm interested in how AI agents behave once they're doing real work: where they fail, how to measure it, and what makes them dependable enough to trust.
+I like building things that solve a real problem, and then checking whether they actually do. So far that has meant tools for AI agents, web apps, LLM apps that make medical records easier to understand, and machine-learning case studies. Most of my research is on AI agents: where they fail on real work, how to measure it, and what it takes before you can rely on one.
 
-My work splits two ways. **Research:** careful, small-scale experiments on LLMs and coding agents, written up as papers when the results hold up. **Engineering:** tools, agent skills and open-source contributions that make agents more reliable to build with.
+My work splits two ways. **Research:** careful, small-scale experiments on LLMs and coding agents, written up as papers when the results hold up. **Engineering:** web apps, developer tools, agent skills and open-source contributions.
 
 I test most ideas with a quick pilot before committing to them, and I write up the results either way in [pilot notes]({{ '/blog/' | relative_url }}): what I tested, what I found, and why I kept going or stopped.
 
