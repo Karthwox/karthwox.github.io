@@ -41,7 +41,7 @@ AIDev only covers agent PRs, but a reviewer's load includes every PR they review
 
 **Measuring depth.** A review counts as a **bare approval** if it approves with no inline comments and an empty body. I also counted **inline comments** per review.
 
-**Comparisons.** Each reviewer is compared only with themselves (reviewer fixed effects), controlling for PR size, whether an agent wrote the PR, and whether the PR is trivial (docs, chore, version bumps, typos, or 10 lines or fewer). I dropped reviews where the person who assigned the task to the agent then reviewed its PR, since that's closer to self-review. Intervals are 95% bootstrap intervals, clustered by reviewer (by repo for the revert models).
+**Comparisons.** Each reviewer is compared only with themselves (reviewer fixed effects), controlling for PR size, whether an agent wrote the PR, and whether the PR is trivial (docs, chore, version bumps, typos, or 10 lines or fewer). I dropped reviews where the person who assigned the task to the agent then reviewed its PR, since that's closer to self-review. The ranges in brackets are 95% intervals. To get them, I resampled whole reviewers (whole repos, for the revert analysis) rather than individual reviews, since the same person's reviews tend to look alike.
 
 **Measuring outcomes.** I used two outcomes:
 
