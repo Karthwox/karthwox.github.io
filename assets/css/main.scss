@@ -353,12 +353,13 @@ kbd {
   color: var(--kp-accent);
   text-decoration: none;
 }
-.post-list p {
+.post-list p:not(.post-meta):not(.post-tags) {
   color: var(--kp-muted);
   max-width: 62ch;
 }
 .post-list .post-meta,
 .post-list .post-tags {
+  max-width: none;
   font-family: var(--kp-mono);
   font-size: 0.75rem;
   color: var(--kp-muted);

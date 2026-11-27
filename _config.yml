@@ -135,8 +135,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Pilot notes # blog_name will be displayed in your blog page
-blog_description: Quick pilots of AI research ideas, written up whether or not they worked out
+blog_name: Pilot Notes # blog_name will be displayed in your blog page
+blog_description: Quick pilots of AI research ideas, written up whether or not they worked out.
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 

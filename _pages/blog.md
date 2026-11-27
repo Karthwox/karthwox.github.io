@@ -1,7 +1,7 @@
 ---
 layout: default
 permalink: /blog/
-title: Pilot notes
+title: Pilot Notes
 nav: true
 nav_order: 2
 pagination:
