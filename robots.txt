@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://karthwox.github.io/sitemap.xml
