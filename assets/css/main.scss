@@ -475,6 +475,47 @@ html body .publications .bibliography .abbr abbr.badge {
   display: none;
 }
 
+/* year / tag archive pages */
+.post:has(article.archive) .post-description::first-letter {
+  text-transform: uppercase;
+}
+.post:has(article.archive) .post-description::after {
+  content: ".";
+}
+.post:has(article.archive) .post-title .fa-solid {
+  font-size: 0.6em;
+  vertical-align: 0.15em;
+  color: var(--kp-accent);
+}
+.archive .table {
+  color: var(--kp-ink);
+}
+.archive .table th {
+  font-family: var(--kp-mono);
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--kp-muted);
+  white-space: nowrap;
+  padding: 0.7rem 1.5rem 0.7rem 0 !important;
+  vertical-align: baseline;
+  width: 1%;
+}
+.archive .table td {
+  padding: 0.7rem 0 !important;
+  vertical-align: baseline;
+}
+.archive .post-link {
+  font-family: var(--kp-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--kp-ink);
+}
+.archive .post-link:hover {
+  color: var(--kp-accent);
+  text-decoration: none;
+}
+
 /* ---------- projects: numbered index (see _pages/projects.md) ---------- */
 .kp-projects {
   list-style: none;
