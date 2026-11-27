@@ -2,7 +2,7 @@
 layout: page
 title: Projects
 permalink: /projects/
-description: Engineering work — open-source contributions and tools for AI agents.
+description: Things I've built, from AI-agent tooling and open-source contributions to web apps and machine learning.
 nav: true
 nav_order: 3
 display_categories: [open source, agent tooling, web apps, llm apps, machine learning]
