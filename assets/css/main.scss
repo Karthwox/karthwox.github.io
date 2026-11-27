@@ -1,0 +1,744 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+/* Built-in Sass modules you’ll likely use across partials */
+@use "sass:math";
+@use "sass:string";
+
+/* Configure your design tokens BEFORE loading any of your partials.
+   Make sure `_sass/_variables.scss` declares `$max-content-width: 72rem !default;` */
+@use "variables" with (
+  $max-content-width: {{site.max_width | default: "930px"}}
+);
+
+/* Your project partials — convert these files to `@use "variables";`
+   (or `@use "variables" as *;`) inside each file and qualify variables if needed. */
+@use "themes";
+@use "layout";
+
+// Core styles organized by usage
+@use "typography";
+@use "navbar";
+@use "footer";
+@use "blog";
+@use "publications";
+@use "components";
+@use "utilities";
+
+// Other specialized styles
+@use "tabs";
+@use "teachings";
+@use "typograms";
+
+/* =============================================================================
+   Site design layer (Karthik). Everything below sits on top of al-folio's
+   own styles. This file overrides the gem's assets/css/main.scss: the block
+   above is copied from it verbatim, so re-copy it if al-folio's main.scss
+   changes in an upgrade, then keep this section.
+   ============================================================================= */
+
+:root {
+  --kp-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --kp-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --kp-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --kp-paper: #f7f4ee;
+  --kp-ink: #1c1a17;
+  --kp-muted: #6b665e;
+  --kp-accent: #c2410c;
+  --kp-accent-soft: rgba(194, 65, 12, 0.08);
+  --kp-rule: rgba(28, 26, 23, 0.12);
+
+  --global-bg-color: var(--kp-paper);
+  --global-text-color: var(--kp-ink);
+  --global-text-color-light: var(--kp-muted);
+  --global-theme-color: var(--kp-accent);
+  --global-hover-color: var(--kp-accent);
+  --global-divider-color: var(--kp-rule);
+  --global-card-bg-color: var(--kp-paper);
+  --global-code-bg-color: #efebe3;
+  --global-footer-bg-color: var(--kp-paper);
+  --global-footer-text-color: var(--kp-muted);
+  --global-footer-link-color: var(--kp-ink);
+  --global-tip-block: var(--kp-accent);
+  --global-tip-block-bg: var(--kp-accent-soft);
+  --global-tip-block-text: var(--kp-ink);
+  --global-tip-block-title: var(--kp-accent);
+}
+
+html[data-theme="dark"] {
+  --kp-paper: #12110f;
+  --kp-ink: #ece7df;
+  --kp-muted: #9d968b;
+  --kp-accent: #ff7849;
+  --kp-accent-soft: rgba(255, 120, 73, 0.1);
+  --kp-rule: #2e2b27;
+
+  --global-bg-color: var(--kp-paper);
+  --global-text-color: var(--kp-ink);
+  --global-text-color-light: var(--kp-muted);
+  --global-theme-color: var(--kp-accent);
+  --global-hover-color: var(--kp-accent);
+  --global-divider-color: var(--kp-rule);
+  --global-card-bg-color: var(--kp-paper);
+  --global-code-bg-color: #1d1b18;
+  --global-footer-bg-color: var(--kp-paper);
+  --global-footer-text-color: var(--kp-muted);
+  --global-footer-link-color: var(--kp-ink);
+  --global-tip-block: var(--kp-accent);
+  --global-tip-block-bg: var(--kp-accent-soft);
+  --global-tip-block-text: var(--kp-ink);
+  --global-tip-block-title: var(--kp-accent);
+}
+
+/* ---------- base ---------- */
+body {
+  font-family: var(--kp-sans);
+  background-color: var(--global-bg-color);
+  color: var(--global-text-color);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: var(--kp-accent);
+  color: var(--kp-paper);
+}
+a {
+  color: var(--kp-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+a:hover {
+  color: var(--kp-accent);
+  text-decoration: underline;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--kp-serif);
+  font-optical-sizing: auto;
+  color: var(--global-text-color);
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-weight: 600;
+}
+h3 {
+  font-weight: 600;
+}
+code,
+pre,
+kbd {
+  font-family: var(--kp-mono);
+}
+
+/* ---------- navbar ---------- */
+#navbar,
+.navbar {
+  background-color: color-mix(in srgb, var(--kp-paper) 88%, transparent) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--kp-rule);
+  box-shadow: none;
+}
+.navbar .navbar-brand.title {
+  font-family: var(--kp-serif);
+  font-size: 1.15rem;
+  color: var(--kp-ink);
+}
+.navbar .nav-link {
+  font-family: var(--kp-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--kp-muted) !important;
+}
+.navbar .nav-item.active > .nav-link,
+.navbar .nav-link:hover {
+  color: var(--kp-ink) !important;
+  text-decoration: underline;
+  text-decoration-color: var(--kp-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.45em;
+}
+
+#light-toggle {
+  border: 0;
+  background: transparent;
+  color: var(--kp-muted);
+  box-shadow: none;
+}
+#light-toggle:hover {
+  color: var(--kp-accent);
+}
+#light-toggle:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ---------- page and post headers ---------- */
+.post-header {
+  margin-bottom: 2.5rem;
+}
+.post-header .post-title {
+  font-family: var(--kp-serif);
+  font-weight: 650;
+  font-size: clamp(2.1rem, 4.6vw, 3.1rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+.post-header .post-description,
+.post-header .post-meta {
+  font-family: var(--kp-mono);
+  font-size: 0.8rem;
+  color: var(--kp-muted);
+}
+.post-header .post-description {
+  font-family: var(--kp-sans);
+  font-size: 1.05rem;
+}
+.post-tags {
+  font-family: var(--kp-mono);
+  font-size: 0.78rem;
+}
+
+/* ---------- home: hero ---------- */
+.post-header:has(.desc) {
+  padding: 3.5rem 0 2.25rem;
+  margin-bottom: 2.75rem;
+  border-bottom: 1px solid var(--kp-rule);
+}
+.post-header:has(.desc) .post-title {
+  font-size: clamp(3rem, 8vw, 5.4rem);
+  line-height: 0.95;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.25rem;
+}
+.post-header:has(.desc) .post-title .font-weight-bold {
+  font-style: normal;
+  font-weight: 800;
+}
+.post-header .desc {
+  font-family: var(--kp-sans);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.5;
+  max-width: 36ch;
+  color: var(--kp-ink);
+}
+.post-header .desc a {
+  color: var(--kp-accent);
+}
+.profile .more-info {
+  font-family: var(--kp-mono);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--kp-muted);
+  border-left: 2px solid var(--kp-accent);
+  padding-left: 0.9rem;
+}
+.profile .more-info p {
+  margin: 0;
+}
+
+/* home: section headings (news, latest posts, selected publications) */
+.post:has(.desc) article > h2 {
+  font-family: var(--kp-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  color: var(--kp-ink);
+  margin: 3rem 0 0.6rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--kp-rule);
+}
+.post:has(.desc) article > h2 a {
+  color: var(--kp-ink) !important;
+  text-decoration: none;
+}
+.post:has(.desc) article > h2 a::after {
+  content: " →";
+  color: var(--kp-accent);
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.post:has(.desc) article > h2 a:hover::after {
+  transform: translateX(4px);
+}
+
+/* latest posts: editorial index */
+.news .table {
+  color: var(--kp-ink);
+  margin: 0;
+}
+.news .table tr {
+  border-bottom: none;
+}
+/* the next section's label already draws a rule, so the last row doesn't */
+.news .table tr:last-child {
+  border-bottom: none;
+}
+.news .table-responsive {
+  margin-bottom: 0;
+}
+.news .table th {
+  font-family: var(--kp-mono);
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--kp-muted);
+  white-space: nowrap;
+  padding: 0.7rem 1.5rem 0.7rem 0 !important;
+  vertical-align: baseline;
+}
+.news .table td {
+  padding: 0.7rem 0 !important;
+  vertical-align: baseline;
+}
+.news .news-title {
+  font-family: var(--kp-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--kp-ink);
+}
+.news .news-title:hover {
+  color: var(--kp-accent);
+  text-decoration: none;
+}
+
+/* ---------- pilot notes (blog index) ---------- */
+.header-bar {
+  text-align: left;
+  border-bottom: 1px solid var(--kp-rule);
+  padding: 3rem 0 2rem;
+  margin-bottom: 1rem;
+}
+.header-bar h1 {
+  font-family: var(--kp-serif);
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.header-bar h2 {
+  font-family: var(--kp-sans);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--kp-muted);
+}
+.tag-category-list {
+  border: none;
+  text-align: left;
+  font-family: var(--kp-mono);
+  font-size: 0.78rem;
+  padding: 0 0 1.5rem;
+}
+.post-list > li {
+  border-bottom: 1px solid var(--kp-rule);
+  padding: 1.75rem 0;
+}
+.post-list .post-title {
+  font-family: var(--kp-serif);
+  font-size: clamp(1.45rem, 3vw, 1.9rem);
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--kp-ink);
+}
+.post-list .post-title:hover {
+  color: var(--kp-accent);
+  text-decoration: none;
+}
+.post-list p:not(.post-meta):not(.post-tags) {
+  color: var(--kp-muted);
+  max-width: 62ch;
+}
+.post-list .post-meta,
+.post-list .post-tags {
+  max-width: none;
+  font-family: var(--kp-mono);
+  font-size: 0.75rem;
+  color: var(--kp-muted);
+}
+
+/* verdict callout */
+blockquote.block-tip {
+  border-left: 3px solid var(--kp-accent);
+  background: var(--kp-accent-soft);
+  border-radius: 0;
+  padding: 1.1rem 1.4rem;
+  font-size: 1.08rem;
+}
+blockquote.block-tip strong:first-child {
+  font-family: var(--kp-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--kp-accent);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+/* ---------- research (publications) ---------- */
+.publications h2.bibliography {
+  font-family: var(--kp-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--kp-muted);
+  border-top: 1px solid var(--kp-rule);
+  border-bottom: none;
+  text-align: left;
+  padding-top: 1rem;
+}
+html body .publications .bibliography .abbr abbr.badge {
+  background: transparent !important;
+  border: 1px solid var(--kp-accent);
+  color: var(--kp-accent) !important;
+  font-family: var(--kp-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 0 !important;
+  padding: 0.3rem 0.4rem;
+}
+.publications .title {
+  font-family: var(--kp-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.publications .author,
+.publications .periodical {
+  font-size: 0.92rem;
+}
+.publications .links a.btn {
+  font-family: var(--kp-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--kp-ink) !important;
+  border: 1px solid var(--kp-rule) !important;
+  border-radius: 0 !important;
+  box-shadow: none;
+}
+.publications .links a.btn:hover {
+  border-color: var(--kp-accent) !important;
+  color: var(--kp-accent) !important;
+}
+
+/* research: filter box */
+.bibsearch-form-input {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  margin: 0.5rem 0 2rem;
+  padding: 0.55rem 0 0.55rem 1.7rem;
+  font-family: var(--kp-mono);
+  font-size: 0.85rem;
+  color: var(--kp-ink);
+  background: transparent
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a847a' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E")
+    no-repeat left center;
+  border: 0;
+  border-bottom: 1px solid var(--kp-rule);
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.bibsearch-form-input::placeholder {
+  color: var(--kp-muted);
+  opacity: 1;
+}
+.bibsearch-form-input:focus {
+  border-bottom-color: var(--kp-accent);
+}
+.bibsearch-form-input:focus-visible {
+  outline: 2px solid var(--kp-accent);
+  outline-offset: 4px;
+}
+
+/* post sidebar contents: grow with the sections, no inner scrollbar */
+#toc-sidebar,
+#toc-sidebar.toc {
+  max-height: none !important;
+  height: auto;
+  overflow: visible !important;
+  scrollbar-width: none;
+}
+#toc-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/* year / tag archive pages */
+.post:has(article.archive) .post-description::first-letter {
+  text-transform: uppercase;
+}
+.post:has(article.archive) .post-description::after {
+  content: ".";
+}
+.post:has(article.archive) .post-title .fa-solid {
+  font-size: 0.6em;
+  vertical-align: 0.15em;
+  color: var(--kp-accent);
+}
+.archive .table {
+  color: var(--kp-ink);
+}
+.archive .table th {
+  font-family: var(--kp-mono);
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--kp-muted);
+  white-space: nowrap;
+  padding: 0.7rem 1.5rem 0.7rem 0 !important;
+  vertical-align: baseline;
+  width: 1%;
+}
+.archive .table td {
+  padding: 0.7rem 0 !important;
+  vertical-align: baseline;
+}
+.archive .post-link {
+  font-family: var(--kp-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--kp-ink);
+}
+.archive .post-link:hover {
+  color: var(--kp-accent);
+  text-decoration: none;
+}
+
+/* ---------- projects: numbered index (see _pages/projects.md) ---------- */
+.kp-projects {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3rem;
+  border-top: 1px solid var(--kp-rule);
+}
+.kp-projects > li {
+  border-bottom: 1px solid var(--kp-rule);
+}
+.kp-projects a {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr 2rem;
+  gap: 1.25rem;
+  align-items: baseline;
+  padding: 1.75rem 0;
+  color: var(--kp-ink);
+  text-decoration: none;
+}
+.kp-projects .kp-num {
+  font-family: var(--kp-serif);
+  font-size: 2.6rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  color: var(--kp-accent);
+}
+.kp-projects h3 {
+  font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+  line-height: 1.2;
+  margin: 0 0 0.4rem;
+}
+.kp-projects p {
+  color: var(--kp-muted);
+  margin: 0 0 0.6rem;
+}
+.kp-projects .kp-label {
+  font-family: var(--kp-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--kp-muted);
+}
+.kp-projects .kp-arrow {
+  font-size: 1.4rem;
+  color: var(--kp-muted);
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+.kp-projects a:hover h3 {
+  color: var(--kp-accent);
+}
+.kp-projects a:hover .kp-arrow {
+  color: var(--kp-accent);
+  transform: translateX(4px);
+}
+@media (max-width: 576px) {
+  .kp-projects a {
+    grid-template-columns: 3rem 1fr;
+  }
+  .kp-projects .kp-arrow {
+    display: none;
+  }
+  .kp-projects .kp-num {
+    font-size: 1.9rem;
+  }
+}
+
+/* ---------- social + footer ---------- */
+.social .contact-icons a {
+  color: var(--kp-ink) !important;
+}
+.social .contact-icons a:hover {
+  color: var(--kp-accent) !important;
+}
+footer {
+  border-top: 1px solid var(--kp-rule);
+  font-family: var(--kp-mono);
+  font-size: 0.72rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kp-projects .kp-arrow {
+    transition: none;
+  }
+}
+
+/* ---------- profile photo: circle beside the name ---------- */
+.post:has(.desc) {
+  position: relative;
+}
+.post:has(.desc) .profile {
+  float: none !important;
+  width: 7.5rem;
+  margin: 0 0 2rem;
+}
+.post:has(.desc) .profile figure,
+.post:has(.desc) .profile picture {
+  margin: 0;
+}
+.post:has(.desc) .profile img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: 50% 28%;
+  border-radius: 50% !important;
+  box-shadow: none !important;
+  outline: 1px solid var(--kp-accent);
+  outline-offset: 6px;
+}
+@media (min-width: 768px) {
+  .post-header:has(.desc) {
+    padding-right: 14.5rem;
+    min-height: 19rem;
+  }
+  .post:has(.desc) .profile {
+    position: absolute;
+    top: 3.5rem;
+    right: 0.5rem;
+    width: 12rem;
+    margin: 0;
+  }
+  .post:has(.desc) .profile img {
+    outline-offset: 8px;
+  }
+}
+
+/* ---------- back to top ---------- */
+#back-to-top {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50%;
+  background: var(--kp-paper) !important;
+  color: var(--kp-ink) !important;
+  border: 1px solid var(--kp-rule);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    bottom 0.2s ease;
+}
+#back-to-top svg {
+  position: static !important;
+  display: block;
+  margin: 0 !important;
+  width: 18px !important;
+  height: 18px !important;
+  transform: none !important;
+  fill: currentColor;
+}
+#back-to-top:hover {
+  color: var(--kp-accent) !important;
+  border-color: var(--kp-accent);
+}
+
+/* ---------- contact block at the bottom of the home page ---------- */
+.social {
+  text-align: left;
+  margin-top: 3rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--kp-rule);
+}
+.social::before {
+  content: "Get in touch";
+  display: block;
+  font-family: var(--kp-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  color: var(--kp-ink);
+  margin-bottom: 1.1rem;
+}
+.social .contact-icons {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.social .contact-icons a {
+  margin: 0 1.1rem 0 0;
+}
+.social .contact-note {
+  font-family: var(--kp-sans);
+  font-size: 0.98rem;
+  color: var(--kp-muted);
+  margin-top: 0.9rem;
+  padding-bottom: 2rem;
+}
+
+/* ---------- page transitions (View Transitions API) ----------
+   Supported browsers cross-fade between pages; others just navigate normally. */
+@view-transition {
+  navigation: auto;
+}
+#navbar {
+  view-transition-name: site-nav;
+}
+::view-transition-old(root) {
+  animation: kp-fade-out 160ms ease-in both;
+}
+::view-transition-new(root) {
+  animation: kp-fade-in 260ms ease-out both;
+}
+@keyframes kp-fade-out {
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+@keyframes kp-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+  #back-to-top {
+    transition: none;
+  }
+}
