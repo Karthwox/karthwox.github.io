@@ -742,3 +742,120 @@ footer {
     transition: none;
   }
 }
+
+/* ---------- phones and small tablets ---------- */
+@media (max-width: 767.98px) {
+  /* less empty space above page titles */
+  .post-header {
+    margin-bottom: 1.75rem;
+  }
+  .post-header:has(.desc) {
+    padding: 1.25rem 0 1.75rem;
+    margin-bottom: 2rem;
+  }
+  .header-bar {
+    padding: 0 0 1.25rem;
+  }
+  .tag-category-list {
+    margin-bottom: 0;
+  }
+  .tag-category-list ul {
+    margin-bottom: 0 !important;
+  }
+
+  /* home: small circular photo beside the name instead of below the intro */
+  .post-header:has(.desc) .post-title {
+    padding-right: 6.75rem;
+    font-size: clamp(2.6rem, 12vw, 3.4rem);
+    margin-bottom: 1rem;
+  }
+  .post:has(.desc) .profile {
+    position: absolute;
+    top: 1.6rem;
+    right: 0.4rem;
+    width: 5.25rem;
+    margin: 0;
+  }
+  .post:has(.desc) .profile img {
+    outline-offset: 4px;
+  }
+
+  /* home news and latest posts: date above the text, so the text gets the full width */
+  .news .table tr {
+    display: flex;
+    flex-direction: column;
+  }
+  .news .table th {
+    width: auto !important;
+    padding: 0.9rem 0 0.15rem !important;
+  }
+  .news .table td {
+    padding: 0 0 0.6rem !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* the contents sidebar would sit above the post on a phone; skip it */
+  .col-sm-3:has(#toc-sidebar) {
+    display: none;
+  }
+
+  /* open menu: solid background and comfortable tap targets */
+  #navbar:has(.navbar-collapse.show),
+  #navbar:has(.navbar-collapse.collapsing) {
+    background-color: var(--kp-paper) !important;
+    opacity: 1 !important;
+  }
+  .navbar .nav-link,
+  #search-toggle,
+  #light-toggle {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .navbar .nav-link {
+    font-size: 0.9rem;
+  }
+
+  /* tags: keep each tag whole and easy to tap */
+  .post-tags a,
+  .tag-category-list a {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.45rem 0;
+  }
+  .tag-category-list ul li {
+    padding: 0.4rem 0;
+  }
+  .tag-category-list {
+    padding-bottom: 0.75rem;
+  }
+
+  /* paper links (Abs, DOI, Bib...): taller buttons */
+  .publications .links .btn {
+    padding: 0.5rem 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* contact icons: bigger gaps between tap targets */
+  .social .contact-icons a {
+    display: inline-block;
+    padding: 0.5rem 0;
+    margin-right: 1.5rem;
+  }
+}
+
+/* touch screens have no keyboard shortcut: label the search button plainly */
+@media (hover: none) {
+  #search-toggle .nav-link {
+    font-size: 0;
+  }
+  #search-toggle .nav-link::before {
+    content: "Search";
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+  }
+  #search-toggle .nav-link i {
+    font-size: 0.85rem;
+  }
+}
